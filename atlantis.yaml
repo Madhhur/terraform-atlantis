@@ -4,12 +4,12 @@ workflows:
     plan:
       steps:
         - run: echo "Running custom step before init"
-        - init: terraform init -upgrade
-        - plan: terraform plan -out=tfplan
+        - run: terraform init -upgrade
+        - run: terraform plan -out=tfplan
     apply:
       steps:
         - run: echo "Running custom step before apply"
-        - apply: terraform apply tfplan
+        - run: terraform apply tfplan
 projects:
   - dir: .
     workspace: default
