@@ -20,3 +20,12 @@ resource "aws_s3_bucket" "example" {
   }
 }
 
+terraform {
+  backend "s3" {
+    bucket         = "my.aws.bucket.for.atlantis"
+    key            = "project/terraform.tfstate"
+    region         = "ap-south-1"
+    use_lockfile   = true
+    encrypt        = true
+  }
+}
