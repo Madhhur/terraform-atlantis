@@ -20,6 +20,16 @@ resource "aws_s3_bucket" "example" {
   }
 }
 
+resource "aws_instance" "example" {
+  ami           = "ami-02d26659fd82cf299"   # Replace with a valid AMI ID for your region
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "example-instance"
+  }
+}
+
+
 terraform {
   backend "s3" {
     bucket         = "my.aws.bucket.for.atlantis"
