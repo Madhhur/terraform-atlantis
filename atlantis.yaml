@@ -17,3 +17,7 @@ workflows:
       steps:
         - apply:
             extra_args: ["-auto-approve"]
+     destroy:
+        steps:
+          - init
+          - run: terraform destroy -auto-approve
