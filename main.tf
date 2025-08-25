@@ -20,6 +20,14 @@ resource "aws_instance" "example" {
   }
 }
 
+resource "aws_instance" "1example" {
+  ami           = "ami-02d26659fd82cf299"   # Replace with a valid AMI ID for your region
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "example-instance1"
+  }
+}
 
 
 terraform {
