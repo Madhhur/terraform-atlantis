@@ -3,7 +3,7 @@ workflows:
   custom-workflow:
     plan:
       steps:
-        - run: echo "Running custom step before init"
+        - run: echo "Running custom step bedfore init"
         - run: terraform init -upgrade
         - run: terraform plan -out=tfplan
     apply:
