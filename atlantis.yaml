@@ -5,6 +5,7 @@ workflows:
       steps:
         - run: echo "Running custom step before init"
         - run: terraform init -upgrade
+        - run: terraform validate
         - run: terraform plan -out=tfplan
     apply:
       steps:
