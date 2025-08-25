@@ -1,16 +1,19 @@
+# atlantis.yaml
 version: 3
+projects:
+  - name: default
+    dir: .
+    autoplan:
+      when_modified: ["*.tf"]
+    workflow: default
 workflows:
-  custom-workflow:
+  default:
     plan:
       steps:
-        - run: echo "Running custom step bedfore init1"
-        - run: terraform init -upgrade
-        - run: terraform plan -out=tfplan
+        - run: echo "Running custom step before init"
+        - init
+        - plan
     apply:
       steps:
-        - run: echo "Running custom step before apply"
-        - run: terraform apply tfplan
-projects:
-  - dir: .
-    workspace: default
-    workflow: custom-workflow
+        - apply:
+            extra_args: ["-auto-approve"]
