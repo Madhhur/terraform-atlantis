@@ -1,15 +1,11 @@
 version: 3
 projects:
-  - name: my-sample-project
+  - name: myproject
     dir: .
-    workspace: default
-    autoplan:
-      when_modified: ["*.tf", "*.tfvars"]
-      enabled: true
-    workflow: terraform
+    workflow: custom
 
 workflows:
-  terraform:
+  custom:
     plan:
       steps:
         - init
@@ -17,4 +13,3 @@ workflows:
     apply:
       steps:
         - apply
-
