@@ -19,6 +19,14 @@ resource "aws_instance" "example" {
     Name = "example-instance"
   }
 }
+resource "aws_instance" "exam5ple" {
+  ami           = "ami-02d26659fd82cf299"   # Replace with a valid AMI ID for your region
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "example-inst6ance"
+  }
+}
 
 
 
