@@ -1,11 +1,16 @@
 version: 3
 workflows:
-  custom:
+  custom-workflow:
     plan:
       steps:
-        - run: terraform fmt -check
-        - init
-        - plan
+        - run: echo "Running custom step before init"
+        - init: terraform init -upgrade
+        - plan: terraform plan -out=tfplan
     apply:
       steps:
-        - apply
+        - run: echo "Running custom step before apply"
+        - apply: terraform apply tfplan
+projects:
+  - dir: .
+    workspace: default
+    workflow: custom-workflow
