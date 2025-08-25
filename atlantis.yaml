@@ -3,7 +3,9 @@ workflows:
   custom:
     plan:
       steps:
+        - run: terraform fmt -check
         - init
+        - validate
         - plan
     apply:
       steps:
