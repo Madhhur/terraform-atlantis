@@ -20,3 +20,10 @@ resource "aws_s3_bucket" "exampl1e" {
   }
 }
 
+resource "aws_s3_bucket" "examplwwwe" {
+  bucket = "varasdksaldsaldmldbucket_name"
+  tags = {
+    Name        = "atlantis-test-b11uwwwwwcket"
+    Environment = "Dev"
+  }
+}
